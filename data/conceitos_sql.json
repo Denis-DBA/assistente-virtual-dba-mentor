@@ -1,0 +1,52 @@
+[
+  {
+    "conceito": "SELECT",
+    "descricao": "Utilizado para consultar dados de uma ou mais tabelas.",
+    "exemplo": "SELECT * FROM CLIENTE;"
+  },
+  {
+    "conceito": "INSERT",
+    "descricao": "Utilizado para inserir novos registros em uma tabela.",
+    "exemplo": "INSERT INTO CLIENTE (NOME, SEXO) VALUES ('João', 'M');"
+  },
+  {
+    "conceito": "UPDATE",
+    "descricao": "Utilizado para atualizar registros existentes.",
+    "exemplo": "UPDATE CLIENTE SET NOME = 'Maria' WHERE IDCLIENTE = 1;"
+  },
+  {
+    "conceito": "DELETE",
+    "descricao": "Remove registros de uma tabela.",
+    "exemplo": "DELETE FROM CLIENTE WHERE IDCLIENTE = 1;"
+  },
+  {
+    "conceito": "INNER JOIN",
+    "descricao": "Retorna apenas os registros que possuem correspondência entre as tabelas.",
+    "exemplo": "SELECT * FROM CLIENTE INNER JOIN PEDIDO ON CLIENTE.IDCLIENTE = PEDIDO.ID_CLIENTE;"
+  },
+  {
+    "conceito": "LEFT JOIN",
+    "descricao": "Retorna todos os registros da tabela da esquerda e os correspondentes da direita.",
+    "exemplo": "SELECT * FROM CLIENTE LEFT JOIN PEDIDO ON CLIENTE.IDCLIENTE = PEDIDO.ID_CLIENTE;"
+  },
+  {
+    "conceito": "PRIMARY KEY",
+    "descricao": "Identifica unicamente cada registro de uma tabela.",
+    "exemplo": "IDCLIENTE INT PRIMARY KEY AUTO_INCREMENT"
+  },
+  {
+    "conceito": "FOREIGN KEY",
+    "descricao": "Cria um relacionamento entre duas tabelas.",
+    "exemplo": "FOREIGN KEY (ID_CLIENTE) REFERENCES CLIENTE(IDCLIENTE)"
+  },
+  {
+    "conceito": "GROUP BY",
+    "descricao": "Agrupa registros para realização de funções de agregação.",
+    "exemplo": "SELECT SEXO, COUNT(*) FROM CLIENTE GROUP BY SEXO;"
+  },
+  {
+    "conceito": "HAVING",
+    "descricao": "Filtra resultados após o agrupamento realizado pelo GROUP BY.",
+    "exemplo": "SELECT SEXO, COUNT(*) FROM CLIENTE GROUP BY SEXO HAVING COUNT(*) > 1;"
+  }
+]
