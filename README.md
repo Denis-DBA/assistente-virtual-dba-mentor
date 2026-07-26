@@ -21,7 +21,7 @@ O projeto utiliza uma base de conhecimento organizada para responder dúvidas, e
 
 ## 📑 Índice
 
-- [📖 Sobre o projeto](#-sobre-o-projeto)
+- [📖 Sobre o Projeto](#-sobre-o-projeto)
 - [🎯 Objetivos](#-objetivos)
 - [📝 Documentação do Agente](#-documentação-do-agente)
 - [📚 Base de Conhecimento](#-base-de-conhecimento)
@@ -31,17 +31,12 @@ O projeto utiliza uma base de conhecimento organizada para responder dúvidas, e
 - [🎤 Pitch](#-pitch)
 - [🛠️ Tecnologias Utilizadas](#️-tecnologias-utilizadas)
 - [📁 Estrutura do Projeto](#-estrutura-do-projeto)
+- [▶️ Como Executar](#️-como-executar)
+- [💬 Exemplos de Perguntas](#-exemplos-de-perguntas)
+- [🚀 Funcionalidades](#-funcionalidades)
+- [🔮 Melhorias Futuras](#-melhorias-futuras)
 - [👨‍💻 Autor](#-autor)
 
-## 🛠️ Tecnologias Utilizadas
-
-- Python 3
-- Streamlit
-- JSON
-- CSV
-- Git
-- GitHub
-- Visual Studio Code
 
 ## 📁 Estrutura do Projeto
 
@@ -137,6 +132,84 @@ Como criar uma VIEW?
 - Validação automática de consultas SQL.
 - Interface mais moderna.
 - Deploy em ambiente de nuvem.
+
+## 📝 Documentação do Agente
+
+O DBA Mentor foi desenvolvido para auxiliar estudantes e iniciantes em Banco de Dados, fornecendo explicações sobre SQL e MySQL de forma didática. O agente utiliza uma base de conhecimento própria, evita respostas inventadas e solicita mais informações quando necessário.
+
+---
+
+## 📚 Base de Conhecimento
+
+A base de conhecimento é composta por arquivos JSON e CSV contendo:
+
+- Conceitos de SQL;
+- Comandos SQL;
+- Erros comuns;
+- Exemplos de consultas.
+
+Esses arquivos são utilizados pelo assistente para responder às perguntas do usuário.
+
+---
+
+## 💬 Prompts do Agente
+
+O comportamento do assistente é definido por um prompt de sistema responsável por estabelecer:
+
+- Objetivo do agente;
+- Regras de comportamento;
+- Regras de segurança;
+- Formato das respostas;
+- Limitações do assistente.
+
+---
+
+## 💻 Aplicação Funcional
+
+O projeto possui uma interface desenvolvida com Streamlit.
+
+Fluxo da aplicação:
+
+1. O usuário informa uma dúvida.
+2. A aplicação consulta a base de conhecimento.
+3. O assistente organiza as informações encontradas.
+4. A resposta é apresentada de forma clara e objetiva.
+5. Quando necessário, o assistente solicita mais contexto.
+
+---
+
+## 📊 Avaliação e Métricas
+
+A aplicação foi avaliada considerando:
+
+- Correção técnica;
+- Clareza das respostas;
+- Fidelidade à base de conhecimento;
+- Segurança;
+- Utilidade para estudantes.
+
+Foram realizados testes com perguntas sobre SQL, JOIN, FOREIGN KEY, DELETE e GROUP BY, obtendo resultados satisfatórios para a primeira versão do projeto.
+
+---
+
+## 🎤 Pitch
+
+O DBA Mentor é um assistente virtual desenvolvido para apoiar estudantes durante o aprendizado de SQL e Banco de Dados.
+
+Utilizando uma base de conhecimento organizada, o assistente explica conceitos, apresenta exemplos práticos, identifica comandos potencialmente perigosos e orienta o usuário de maneira didática.
+
+O projeto demonstra como a Inteligência Artificial pode ser utilizada para apoiar o ensino de Banco de Dados por meio de uma aplicação simples, organizada e de fácil utilização.
+
+
+## 🛠️ Tecnologias Utilizadas
+
+- Python 3
+- Streamlit
+- JSON
+- CSV
+- Git
+- GitHub
+- Visual Studio Code
 
 ## 👨‍💻 Autor
 
