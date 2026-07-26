@@ -1,0 +1,17 @@
+comando,categoria,descricao,sintaxe,exemplo,risco
+SELECT,DQL,Consulta dados armazenados em uma ou mais tabelas,"SELECT colunas FROM tabela;","SELECT NOME, SEXO FROM CLIENTE;",baixo
+INSERT,DML,Insere um novo registro em uma tabela,"INSERT INTO tabela (colunas) VALUES (valores);","INSERT INTO CLIENTE (NOME, SEXO) VALUES ('Carlos', 'M');",medio
+UPDATE,DML,Atualiza registros existentes em uma tabela,"UPDATE tabela SET coluna = valor WHERE condicao;","UPDATE CLIENTE SET NOME = 'Carla' WHERE IDCLIENTE = 1;",alto
+DELETE,DML,Remove registros de uma tabela,"DELETE FROM tabela WHERE condicao;","DELETE FROM CLIENTE WHERE IDCLIENTE = 1;",alto
+CREATE TABLE,DDL,Cria uma nova tabela no banco de dados,"CREATE TABLE tabela (coluna tipo restricao);","CREATE TABLE CLIENTE (IDCLIENTE INT PRIMARY KEY AUTO_INCREMENT, NOME VARCHAR(50) NOT NULL);",medio
+ALTER TABLE,DDL,Altera a estrutura de uma tabela existente,"ALTER TABLE tabela operacao;","ALTER TABLE CLIENTE ADD EMAIL VARCHAR(100);",alto
+DROP TABLE,DDL,Remove uma tabela e todos os seus dados,"DROP TABLE tabela;","DROP TABLE CLIENTE;",critico
+TRUNCATE TABLE,DDL,Remove todos os registros de uma tabela mantendo sua estrutura,"TRUNCATE TABLE tabela;","TRUNCATE TABLE CLIENTE;",critico
+INNER JOIN,DQL,Retorna apenas registros com correspondência entre as tabelas,"SELECT colunas FROM tabela1 INNER JOIN tabela2 ON condicao;","SELECT C.NOME, P.IDPEDIDO FROM CLIENTE C INNER JOIN PEDIDO P ON C.IDCLIENTE = P.ID_CLIENTE;",baixo
+LEFT JOIN,DQL,Retorna todos os registros da tabela da esquerda e os correspondentes da direita,"SELECT colunas FROM tabela1 LEFT JOIN tabela2 ON condicao;","SELECT C.NOME, P.IDPEDIDO FROM CLIENTE C LEFT JOIN PEDIDO P ON C.IDCLIENTE = P.ID_CLIENTE;",baixo
+WHERE,DQL,Filtra registros de acordo com uma condição,"SELECT colunas FROM tabela WHERE condicao;","SELECT * FROM CLIENTE WHERE SEXO = 'F';",baixo
+ORDER BY,DQL,Ordena o resultado de uma consulta,"SELECT colunas FROM tabela ORDER BY coluna ASC ou DESC;","SELECT * FROM CLIENTE ORDER BY NOME ASC;",baixo
+GROUP BY,DQL,Agrupa registros que possuem valores em comum,"SELECT coluna, funcao_agregacao FROM tabela GROUP BY coluna;","SELECT SEXO, COUNT(*) FROM CLIENTE GROUP BY SEXO;",baixo
+HAVING,DQL,Filtra resultados após o agrupamento com GROUP BY,"SELECT coluna, COUNT(*) FROM tabela GROUP BY coluna HAVING condicao;","SELECT SEXO, COUNT(*) FROM CLIENTE GROUP BY SEXO HAVING COUNT(*) > 1;",baixo
+CREATE VIEW,DDL,Cria uma visão baseada em uma consulta SQL,"CREATE VIEW nome_view AS SELECT colunas FROM tabela;","CREATE VIEW V_CLIENTES AS SELECT IDCLIENTE, NOME FROM CLIENTE;",medio
+CREATE PROCEDURE,DDL,Cria um procedimento armazenado no banco de dados,"CREATE PROCEDURE nome_procedure() BEGIN comandos; END;","CREATE PROCEDURE LISTAR_CLIENTES() BEGIN SELECT * FROM CLIENTE; END;",alto
