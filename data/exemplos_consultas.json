@@ -1,0 +1,88 @@
+[
+  {
+    "titulo": "Listar todos os clientes",
+    "objetivo": "Consultar todos os registros da tabela CLIENTE.",
+    "consulta": "SELECT * FROM CLIENTE;",
+    "explicacao": "O asterisco representa todas as colunas da tabela."
+  },
+  {
+    "titulo": "Selecionar colunas específicas",
+    "objetivo": "Exibir apenas o nome e o sexo dos clientes.",
+    "consulta": "SELECT NOME, SEXO FROM CLIENTE;",
+    "explicacao": "Selecionar apenas as colunas necessárias melhora a legibilidade da consulta."
+  },
+  {
+    "titulo": "Filtrar clientes pelo sexo",
+    "objetivo": "Exibir apenas clientes do sexo feminino.",
+    "consulta": "SELECT * FROM CLIENTE WHERE SEXO = 'F';",
+    "explicacao": "A cláusula WHERE filtra os registros conforme uma condição."
+  },
+  {
+    "titulo": "Ordenar clientes pelo nome",
+    "objetivo": "Exibir os clientes em ordem alfabética.",
+    "consulta": "SELECT * FROM CLIENTE ORDER BY NOME ASC;",
+    "explicacao": "ASC ordena os resultados em ordem crescente."
+  },
+  {
+    "titulo": "Contar clientes por sexo",
+    "objetivo": "Mostrar a quantidade de clientes agrupados por sexo.",
+    "consulta": "SELECT SEXO, COUNT(*) AS QUANTIDADE FROM CLIENTE GROUP BY SEXO;",
+    "explicacao": "GROUP BY reúne os registros com valores iguais e COUNT calcula a quantidade em cada grupo."
+  },
+  {
+    "titulo": "Filtrar grupos com HAVING",
+    "objetivo": "Exibir somente grupos com mais de um cliente.",
+    "consulta": "SELECT SEXO, COUNT(*) AS QUANTIDADE FROM CLIENTE GROUP BY SEXO HAVING COUNT(*) > 1;",
+    "explicacao": "HAVING filtra os resultados depois que o agrupamento é realizado."
+  },
+  {
+    "titulo": "Relacionar clientes e telefones",
+    "objetivo": "Exibir o nome do cliente e seus números de telefone.",
+    "consulta": "SELECT C.NOME, T.TIPO, T.NUMERO FROM CLIENTE C INNER JOIN TELEFONE T ON C.IDCLIENTE = T.ID_CLIENTE;",
+    "explicacao": "INNER JOIN retorna apenas clientes que possuem telefone relacionado."
+  },
+  {
+    "titulo": "Listar clientes com ou sem pedidos",
+    "objetivo": "Exibir todos os clientes, inclusive aqueles que não possuem pedidos.",
+    "consulta": "SELECT C.NOME, P.IDPEDIDO FROM CLIENTE C LEFT JOIN PEDIDO P ON C.IDCLIENTE = P.ID_CLIENTE;",
+    "explicacao": "LEFT JOIN mantém todos os registros da tabela localizada à esquerda."
+  },
+  {
+    "titulo": "Inserir um cliente",
+    "objetivo": "Cadastrar um novo registro na tabela CLIENTE.",
+    "consulta": "INSERT INTO CLIENTE (NOME, SEXO) VALUES ('Carlos', 'M');",
+    "explicacao": "Os valores devem seguir a mesma ordem das colunas informadas."
+  },
+  {
+    "titulo": "Atualizar um cliente",
+    "objetivo": "Alterar o nome de um cliente específico.",
+    "consulta": "UPDATE CLIENTE SET NOME = 'Carlos Silva' WHERE IDCLIENTE = 1;",
+    "explicacao": "A cláusula WHERE evita que todos os registros sejam atualizados.",
+    "alerta": "Sempre confirme a condição antes de executar um UPDATE."
+  },
+  {
+    "titulo": "Excluir um cliente",
+    "objetivo": "Remover um cliente específico.",
+    "consulta": "DELETE FROM CLIENTE WHERE IDCLIENTE = 1;",
+    "explicacao": "A cláusula WHERE limita a exclusão ao registro informado.",
+    "alerta": "Execute primeiro um SELECT com a mesma condição para conferir o registro."
+  },
+  {
+    "titulo": "Criar uma tabela",
+    "objetivo": "Criar uma tabela simples de departamentos.",
+    "consulta": "CREATE TABLE DEPARTAMENTO (IDDEPARTAMENTO INT PRIMARY KEY AUTO_INCREMENT, NOME VARCHAR(50) NOT NULL UNIQUE);",
+    "explicacao": "A tabela possui uma chave primária automática e um nome obrigatório e único."
+  },
+  {
+    "titulo": "Criar chave estrangeira",
+    "objetivo": "Relacionar a tabela PEDIDO com a tabela CLIENTE.",
+    "consulta": "ALTER TABLE PEDIDO ADD CONSTRAINT FK_PEDIDO_CLIENTE FOREIGN KEY (ID_CLIENTE) REFERENCES CLIENTE(IDCLIENTE);",
+    "explicacao": "A chave estrangeira garante a integridade do relacionamento entre as tabelas."
+  },
+  {
+    "titulo": "Criar uma view",
+    "objetivo": "Criar uma visão com informações básicas dos clientes.",
+    "consulta": "CREATE VIEW V_CLIENTES AS SELECT IDCLIENTE, NOME, SEXO FROM CLIENTE;",
+    "explicacao": "A view armazena uma consulta reutilizável, mas não duplica os dados da tabela."
+  }
+]
