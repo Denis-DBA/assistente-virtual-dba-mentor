@@ -1,0 +1,58 @@
+[
+  {
+    "erro": "Esquecer a cláusula WHERE no UPDATE",
+    "descricao": "Atualiza todos os registros da tabela quando a cláusula WHERE é omitida.",
+    "exemplo_errado": "UPDATE CLIENTE SET NOME = 'Maria';",
+    "correcao": "UPDATE CLIENTE SET NOME = 'Maria' WHERE IDCLIENTE = 1;",
+    "nivel": "alto"
+  },
+  {
+    "erro": "Esquecer a cláusula WHERE no DELETE",
+    "descricao": "Remove todos os registros da tabela.",
+    "exemplo_errado": "DELETE FROM CLIENTE;",
+    "correcao": "DELETE FROM CLIENTE WHERE IDCLIENTE = 1;",
+    "nivel": "crítico"
+  },
+  {
+    "erro": "Utilizar INNER JOIN sem condição ON",
+    "descricao": "A consulta fica incorreta porque não existe relacionamento entre as tabelas.",
+    "exemplo_errado": "SELECT * FROM CLIENTE INNER JOIN PEDIDO;",
+    "correcao": "SELECT * FROM CLIENTE INNER JOIN PEDIDO ON CLIENTE.IDCLIENTE = PEDIDO.ID_CLIENTE;",
+    "nivel": "médio"
+  },
+  {
+    "erro": "Utilizar HAVING sem GROUP BY",
+    "descricao": "Na maioria dos casos o HAVING deve ser utilizado após um GROUP BY.",
+    "exemplo_errado": "SELECT COUNT(*) FROM CLIENTE HAVING COUNT(*) > 1;",
+    "correcao": "SELECT SEXO, COUNT(*) FROM CLIENTE GROUP BY SEXO HAVING COUNT(*) > 1;",
+    "nivel": "baixo"
+  },
+  {
+    "erro": "Esquecer aspas em valores VARCHAR",
+    "descricao": "Valores do tipo texto devem estar entre aspas.",
+    "exemplo_errado": "SELECT * FROM CLIENTE WHERE NOME = Carlos;",
+    "correcao": "SELECT * FROM CLIENTE WHERE NOME = 'Carlos';",
+    "nivel": "baixo"
+  },
+  {
+    "erro": "Confundir PRIMARY KEY com FOREIGN KEY",
+    "descricao": "A PRIMARY KEY identifica um registro. A FOREIGN KEY cria relacionamento entre tabelas.",
+    "exemplo_errado": "PRIMARY KEY(ID_CLIENTE)",
+    "correcao": "FOREIGN KEY(ID_CLIENTE) REFERENCES CLIENTE(IDCLIENTE)",
+    "nivel": "médio"
+  },
+  {
+    "erro": "Usar SELECT * desnecessariamente",
+    "descricao": "Consultar apenas as colunas necessárias melhora a legibilidade e pode melhorar o desempenho.",
+    "exemplo_errado": "SELECT * FROM CLIENTE;",
+    "correcao": "SELECT NOME, SEXO FROM CLIENTE;",
+    "nivel": "baixo"
+  },
+  {
+    "erro": "Esquecer AUTO_INCREMENT na chave primária",
+    "descricao": "Em tabelas MySQL é comum utilizar AUTO_INCREMENT para gerar IDs automaticamente.",
+    "exemplo_errado": "IDCLIENTE INT PRIMARY KEY",
+    "correcao": "IDCLIENTE INT PRIMARY KEY AUTO_INCREMENT",
+    "nivel": "baixo"
+  }
+]
